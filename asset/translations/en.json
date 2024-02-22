@@ -1,0 +1,17 @@
+{
+    "home": {
+        "title": "Home"
+    },
+    "general": {
+        "button": {
+            "save": "Save {}",
+            "dialog": {
+                "version": {
+                    "title": "Version",
+                    "message": "Version information not available."
+                }
+            },
+            "error": "Error"
+        }
+    }
+}
