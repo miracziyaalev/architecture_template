@@ -8,8 +8,8 @@ enum Locales {
   /// English locale.
   en(Locale('en', 'US'));
 
+  const Locales(this.locale);
+
   /// Returns the locale value of the enum.
   final Locale locale;
-
-  const Locales(this.locale);
 }
