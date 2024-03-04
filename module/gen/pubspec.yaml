@@ -1,0 +1,56 @@
+name: gen
+description: "A new Flutter package project."
+version: 0.0.1
+homepage: none
+
+environment:
+  sdk: '>=3.2.3 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  json_annotation: ^4.8.1
+  flutter_svg: ^2.0.10+1
+  lottie: ^3.1.0
+  envied: ^0.5.3
+  equatable: ^2.0.5
+  
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  very_good_analysis: ^5.1.0
+  build_runner: ^2.4.8
+  envied_generator: ^0.5.3
+  json_serializable: ^6.7.1
+  flutter_gen_runner: ^5.3.2
+
+flutter_gen:
+  output: lib/src/asset/
+  integrations:
+    lottie: true
+    flutter_svg: true
+
+  colors:
+    inputs:
+      - assets/color/colors.xml
+
+  
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  assets:
+   
+    - assets/color/
+    - assets/icons/
+    - assets/images/
+    - assets/lottie/
+  
