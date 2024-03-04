@@ -86,3 +86,14 @@ flutter:
  
   assets:
     - asset/translations/
+
+
+  fonts:
+    - family: Cereal
+      fonts:
+        - asset: asset/fonts/AirbnbCereal_W_Bd.otf
+        - asset: asset/fonts/AirbnbCereal_W_Bk.otf
+        - asset: asset/fonts/AirbnbCereal_W_Blk.otf
+        - asset: asset/fonts/AirbnbCereal_W_Lt.otf
+        - asset: asset/fonts/AirbnbCereal_W_Md.otf
+        - asset: asset/fonts/AirbnbCereal_W_XBd.otf

@@ -19,9 +19,7 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
       appBar: AppBar(
-        backgroundColor: Colors.blueGrey[900],
         title: const Text(
           'Home View',
           style: TextStyle(color: Colors.white),
@@ -35,18 +33,10 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
               onPressed: () {},
               child: Text(AppEnvironmentItems.baseUrl.value),
             ),
-            Container(
-              height: 50,
-              width: 200,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Center(
-                child: Text(
-                  LocaleKeys.general_button_dialog_version_message.tr(),
-                ),
-              ),
+            Text(
+              LocaleKeys.general_button_dialog_version_message.tr(),
+              style: Theme.of(context).textTheme.bodySmall,
+              textAlign: TextAlign.center,
             ),
             ElevatedButton(
               onPressed: () {
