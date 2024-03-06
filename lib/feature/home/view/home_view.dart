@@ -2,10 +2,13 @@ import 'package:architecture_template/feature/home/view/mixin/home_view_mixin.da
 import 'package:architecture_template/product/init/language/locale_keys.g.dart';
 import 'package:architecture_template/product/init/product_localization.dart';
 import 'package:architecture_template/product/utility/constans/enums/locales.dart';
+import 'package:architecture_template/product/widget/button/bold_text_button.dart';
+import 'package:architecture_template/product/widget/button/custom_login/custom_login_button.dart';
+import 'package:architecture_template/product/widget/container/decoration_container.dart';
+import 'package:architecture_template/product/widget/padding/project_padding.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:gen/gen.dart';
 import 'package:kartal/kartal.dart';
 import 'package:widgets/widgets.dart';
 
@@ -23,6 +26,9 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(onPressed: () {
+        SuccessDialog.show(title: "Arcitecture", context: context);
+      }),
       appBar: AppBar(
         title: const Text(
           'Home View',
@@ -33,6 +39,8 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            const CustomLoginButton(),
+            BoldTextButton(onPressed: () {}, child: const Text("Miraç Ziya Alev")),
             AdaptAllView(
                 phone: Text("".ext.version),
                 tablet: Text("".ext.version),
@@ -43,11 +51,13 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
                     fontSize: 30,
                   ),
                 )),
-            Expanded(child: Image.network("".ext.randomImage)),
-            Assets.icons.icLove.svg(
-              package: 'gen',
-              width: 100,
-              height: 100,
+            Padding(
+              padding: const ProjectPadding.horizontalNormal(),
+              child: Container(
+                height: 100,
+                width: context.general.mediaQuery.size.width * 1,
+                decoration: CircularBoxDecoration(color: Colors.red, radius: 20),
+              ),
             ),
             Text(
               LocaleKeys.general_button_dialog_version_message.tr(),

@@ -23,6 +23,7 @@ final class _MyApp extends StatelessWidget {
       // routerDelegate: AppRouter(),
       // routeInformationParser: AppRouter().defau ltRouteParser(),
       builder: CustomResponsive.build,
+      debugShowCheckedModeBanner: false,
       routerConfig: _appRouter.config(),
       themeMode: ThemeMode.light,
       theme: CustomLightTheme().themeData,
