@@ -1,6 +1,9 @@
 import 'package:architecture_template/feature/home/view/mixin/home_view_mixin.dart';
+import 'package:architecture_template/product/init/config/app_environment.dart';
 import 'package:architecture_template/product/init/language/locale_keys.g.dart';
 import 'package:architecture_template/product/init/product_localization.dart';
+import 'package:architecture_template/product/service/manager/product_servis_manager.dart';
+import 'package:architecture_template/product/service/manager/service_paths.dart';
 import 'package:architecture_template/product/utility/constans/enums/locales.dart';
 import 'package:architecture_template/product/widget/button/bold_text_button.dart';
 import 'package:architecture_template/product/widget/button/custom_login/custom_login_button.dart';
@@ -9,7 +12,9 @@ import 'package:architecture_template/product/widget/padding/project_padding.dar
 import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:gen/gen.dart';
 import 'package:kartal/kartal.dart';
+import 'package:vexana/vexana.dart';
 import 'package:widgets/widgets.dart';
 
 part 'widget/home_app_bar.dart';
@@ -23,6 +28,18 @@ final class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> with HomeViewMixin {
+  final ProductNetworkManager manager = ProductNetworkManager.base();
+
+  Future<void> getData() async {
+    final response = await manager.send<User, List<User>>(
+      ProductServicePath.posts.value,
+      parseModel: User(),
+      method: RequestType.GET,
+    );
+
+    print(response.data);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +57,7 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const CustomLoginButton(),
-            BoldTextButton(onPressed: () {}, child: const Text("Miraç Ziya Alev")),
+            BoldTextButton(onPressed: () {}, child: Text(AppEnvironmentItems.baseUrl.value)),
             AdaptAllView(
                 phone: Text("".ext.version),
                 tablet: Text("".ext.version),
